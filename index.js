@@ -11,7 +11,6 @@ function createRequest(projectId, sessionId, chatText) {
     }
   }
   
-  
   // express 세팅
   const express = require("express")
   const app = express()
@@ -40,7 +39,6 @@ function createRequest(projectId, sessionId, chatText) {
     }
   }
   
-  
   // DialogFlow Client 생성
   const sessionClient = new dialogflow.SessionsClient(dialogConfig);
   
@@ -60,17 +58,11 @@ function createRequest(projectId, sessionId, chatText) {
       .then((response) => {
         //console.log(response)
         const aaa = response[0].queryResult.fulfillmentMessages[0].text.text
-        // let test = response[0].queryResult.fulfillmentMessages[1].text.text
+    
         const x = aaa.toString();
-        //const y = test.toString();
+   
         const bandibotResponse = response[0].queryResult.fulfillmentText
-        
-        // console.log(aaa)
-        //console.log(x)
-        //console.log(y)
-        //  console.log(bandibotResponse)
-        //res.send(bandibotResponse,200)
-        //res.end(x+y)
+       
         res.end(bandibotResponse)
       })
   })
@@ -78,8 +70,6 @@ function createRequest(projectId, sessionId, chatText) {
   app.listen(9000, () => {
     console.log("Server is running at port 9000")
   })
-  
-  
   
   /*
   
