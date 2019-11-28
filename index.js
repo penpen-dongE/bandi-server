@@ -59,17 +59,19 @@ function createRequest(projectId, sessionId, chatText) {
     sessionClient.detectIntent(createRequest(projetId, sessionId, chatText))
       .then((response) => {
         //console.log(response)
-        const aaa = response[0].queryResult.fulfillmentMessages[0]
-        const test = response[0].queryResult.fulfillmentMessages[0].text.text
-        const x = test.toString();
+        const aaa = response[0].queryResult.fulfillmentMessages[0].text.text
+        // let test = response[0].queryResult.fulfillmentMessages[1].text.text
+        const x = aaa.toString();
+        //const y = test.toString();
         const bandibotResponse = response[0].queryResult.fulfillmentText
         
         // console.log(aaa)
-        //  console.log(x)
+        //console.log(x)
+        //console.log(y)
         //  console.log(bandibotResponse)
-        
-        res.end(x+bandibotResponse)
-        // res.end(bandibotResponse)
+        //res.send(bandibotResponse,200)
+        //res.end(x+y)
+        res.end(bandibotResponse)
       })
   })
   
